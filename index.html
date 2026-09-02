@@ -1,0 +1,2531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CLEANMET | Limpieza Profesional de Cocinas</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #071525;
+            --navy2: #0b213c;
+            --blue: #087bea;
+            --cyan: #43c6ff;
+            --steel: #a9b7c8;
+            --light: #edf4fa;
+            --white: #ffffff;
+            --line: rgba(255,255,255,.11);
+            --card: rgba(255,255,255,.055);
+            --shadow: 0 24px 70px rgba(0,0,0,.38);
+            --font: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--navy);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body:before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background:
+                radial-gradient(
+                    circle at 20% 0%,
+                    rgba(8,123,234,.22),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 85% 30%,
+                    rgba(67,198,255,.10),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    145deg,
+                    #061321,
+                    #0a1c31 55%,
+                    #06111d
+                );
+        }
+
+        body:after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            opacity: .18;
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.035) 1px,
+                    transparent 1px
+                );
+            background-size: 48px 48px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1160px, 92%);
+            margin: auto;
+        }
+
+        section {
+            padding: 110px 0;
+            position: relative;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.12;
+        }
+
+        .section-kicker {
+            text-align: center;
+            color: var(--cyan);
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3.4rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(
+                90deg,
+                #fff,
+                var(--cyan)
+            );
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 720px;
+            margin: 18px auto 55px;
+            color: var(--steel);
+            font-size: 1.02rem;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5,16,29,.78);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid transparent;
+            transition: .3s;
+        }
+
+        header.scrolled {
+            border-bottom-color: var(--line);
+            box-shadow: 0 10px 35px rgba(0,0,0,.18);
+        }
+
+        nav {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-img {
+            height: 68px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(
+                0 0 17px rgba(67,198,255,.3)
+            );
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 27px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: .6px;
+            text-transform: uppercase;
+            color: #d6e0eb;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan);
+        }
+
+        .nav-cta {
+            padding: 11px 17px;
+            border: 1px solid rgba(67,198,255,.45);
+            border-radius: 30px;
+            color: #fff !important;
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: 0;
+            color: #fff;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        #hero {
+            min-height: 760px;
+            display: flex;
+            align-items: center;
+            padding-top: 145px;
+            padding-bottom: 95px;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-copy {
+            text-align: left;
+        }
+
+        .hero-logo {
+            width: min(310px,75%);
+            height: auto;
+            filter: drop-shadow(
+                0 0 30px rgba(67,198,255,.35)
+            );
+            margin-bottom: 25px;
+        }
+
+        .hero-copy h1 {
+            font-size: clamp(
+                2.6rem,
+                5.5vw,
+                5.2rem
+            );
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .hero-copy h1 span {
+            color: var(--cyan);
+        }
+
+        .hero-copy .lead {
+            font-size: 1.18rem;
+            color: #dbe7f2;
+            max-width: 620px;
+            margin: 22px 0 30px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 25px;
+            border-radius: 50px;
+            font-size: .78rem;
+            font-weight: 900;
+            letter-spacing: .7px;
+            text-transform: uppercase;
+            transition: .3s;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(
+                135deg,
+                var(--blue),
+                var(--cyan)
+            );
+            box-shadow:
+                0 14px 34px rgba(8,123,234,.28);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 20px 45px rgba(8,123,234,.42);
+        }
+
+        .btn-ghost {
+            border-color: var(--line);
+            background: rgba(255,255,255,.035);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--cyan);
+            color: var(--cyan);
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .hero-tags span {
+            font-size: .72rem;
+            font-weight: 700;
+            color: #b9c7d6;
+            border: 1px solid var(--line);
+            padding: 7px 11px;
+            border-radius: 30px;
+            background: rgba(255,255,255,.03);
+        }
+
+        .hero-visual {
+            position: relative;
+            min-height: 470px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orbit {
+            position: absolute;
+            width: 410px;
+            height: 410px;
+            border: 1px solid rgba(67,198,255,.18);
+            border-radius: 50%;
+            animation: spin 20s linear infinite;
+        }
+
+        .orbit:before {
+            content: "";
+            position: absolute;
+            top: 26px;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 20px var(--cyan);
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero-photo-card {
+            width: min(470px,90%);
+            border: 1px solid rgba(67,198,255,.28);
+            background: rgba(10,31,55,.72);
+            padding: 12px;
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 2;
+            transform: rotate(1.5deg);
+        }
+
+        .hero-photo-card img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            border-radius: 20px;
+            display: block;
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: 25px;
+            left: -20px;
+            background: #fff;
+            color: #102033;
+            border-radius: 16px;
+            padding: 14px 17px;
+            box-shadow: 0 16px 35px rgba(0,0,0,.3);
+            font-size: .72rem;
+            font-weight: 900;
+        }
+
+        .hero-badge b {
+            display: block;
+            color: var(--blue);
+            font-size: 1.15rem;
+        }
+
+        /* =========================
+           WHY
+        ========================= */
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .why-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 25px;
+            padding: 34px;
+            transition: .35s;
+        }
+
+        .why-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(67,198,255,.4);
+        }
+
+        .why-icon {
+            font-size: 2rem;
+            margin-bottom: 17px;
+        }
+
+        .why-card h3 {
+            font-size: 1.08rem;
+            margin-bottom: 9px;
+        }
+
+        .why-card p {
+            color: var(--steel);
+            font-size: .9rem;
+        }
+
+        .warning-panel {
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(8,123,234,.15),
+                    rgba(255,255,255,.035)
+                );
+            border: 1px solid rgba(67,198,255,.22);
+            border-radius: 25px;
+            padding: 38px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .warning-panel h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .warning-panel p {
+            color: #c4d0dc;
+        }
+
+        .risk-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .risk-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: .88rem;
+            color: #dce6ef;
+        }
+
+        .risk-list li:before {
+            content: "→";
+            color: var(--cyan);
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 18px;
+        }
+
+        .service {
+            padding: 30px 24px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            position: relative;
+            overflow: hidden;
+            transition: .35s;
+        }
+
+        .service:after {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            right: -65px;
+            top: -65px;
+            border-radius: 50%;
+            background: rgba(67,198,255,.12);
+        }
+
+        .service:hover {
+            transform: translateY(-7px);
+            border-color: rgba(67,198,255,.45);
+            box-shadow: 0 18px 40px rgba(0,0,0,.2);
+        }
+
+        .service .num {
+            color: var(--cyan);
+            font-weight: 900;
+            font-size: .7rem;
+            letter-spacing: 2px;
+        }
+
+        .service .icon {
+            font-size: 2.4rem;
+            margin: 18px 0;
+        }
+
+        .service h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            font-size: .84rem;
+            color: var(--steel);
+        }
+
+        /* =========================
+           BEFORE / AFTER
+        ========================= */
+
+        .ba-wrap {
+            max-width: 960px;
+            margin: auto;
+        }
+
+        .ba-slider {
+            position: relative;
+            height: 500px;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+            user-select: none;
+        }
+
+        .ba-slider > img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ba-before {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            clip-path: inset(0 50% 0 0);
+        }
+
+        .ba-before img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ba-divider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,.5);
+            transform: translateX(-50%);
+            z-index: 3;
+        }
+
+        .ba-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: #fff;
+            color: var(--blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 22px rgba(0,0,0,.3);
+            z-index: 4;
+        }
+
+        .ba-label {
+            position: absolute;
+            top: 18px;
+            padding: 8px 13px;
+            border-radius: 7px;
+            background: rgba(7,21,37,.82);
+            font-size: .7rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            z-index: 5;
+        }
+
+        .ba-label.before {
+            left: 18px;
+        }
+
+        .ba-label.after {
+            right: 18px;
+        }
+
+        .ba-controls {
+            text-align: center;
+            margin-top: 18px;
+            color: var(--steel);
+            font-size: .78rem;
+        }
+
+        .ba-range {
+            width: 100%;
+            margin-top: 15px;
+            accent-color: var(--blue);
+            cursor: pointer;
+        }
+
+        /* =========================
+           GALLERY
+        ========================= */
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 18px;
+            margin-top: 45px;
+        }
+
+        .gallery-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: .35s;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(67,198,255,.45);
+        }
+
+        .gallery-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .gallery-images > div {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .gallery-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: .5s;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .gallery-images span {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 2;
+            padding: 5px 8px;
+            border-radius: 5px;
+            background: rgba(7,21,37,.86);
+            color: #fff;
+            font-size: .62rem;
+            font-weight: 900;
+            letter-spacing: .8px;
+        }
+
+        .gallery-card h3 {
+            padding: 15px 18px;
+            font-size: .82rem;
+            text-transform: uppercase;
+        }
+
+        /* =========================
+           PROCESS
+        ========================= */
+
+        .process {
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            gap: 0;
+            position: relative;
+        }
+
+        .process:before {
+            content: "";
+            position: absolute;
+            top: 32px;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--blue),
+                    var(--cyan),
+                    var(--blue),
+                    transparent
+                );
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding: 0 10px;
+        }
+
+        .step-circle {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            margin: 0 auto 18px;
+            background: var(--navy2);
+            border: 1px solid rgba(67,198,255,.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cyan);
+            font-weight: 900;
+            box-shadow:
+                0 0 0 8px rgba(8,123,234,.05);
+        }
+
+        .step h3 {
+            font-size: .85rem;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: .76rem;
+            color: var(--steel);
+        }
+
+        /* =========================
+           DIFFERENTIAL
+        ========================= */
+
+        .diff-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+
+        .diff-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(16,52,95,.65),
+                    rgba(255,255,255,.03)
+                );
+            border: 1px solid var(--line);
+            border-radius: 25px;
+            padding: 38px;
+        }
+
+        .diff-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 15px;
+        }
+
+        .checks {
+            list-style: none;
+        }
+
+        .checks li {
+            padding: 11px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: .86rem;
+            color: #dbe5ee;
+        }
+
+        .checks li:before {
+            content: "✓";
+            color: var(--cyan);
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 18px;
+            margin-top: 28px;
+        }
+
+        .stat {
+            background: rgba(255,255,255,.035);
+            border: 1px solid var(--line);
+            padding: 28px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 2.2rem;
+            color: #fff;
+        }
+
+        .stat span {
+            font-size: .75rem;
+            color: var(--steel);
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .quote-box {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            padding: 65px 45px;
+            border-radius: 32px;
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(67,198,255,.2),
+                    transparent 50%
+                ),
+                linear-gradient(
+                    145deg,
+                    rgba(16,52,95,.8),
+                    rgba(5,17,30,.95)
+                );
+            border: 1px solid rgba(67,198,255,.3);
+            box-shadow: var(--shadow);
+        }
+
+        .quote-box h2 {
+            font-size: clamp(2rem,4vw,3.2rem);
+            text-transform: uppercase;
+        }
+
+        .quote-box p {
+            max-width: 650px;
+            margin: 18px auto 30px;
+            color: var(--steel);
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-wrapper {
+            max-width: 800px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .contact-item {
+            padding: 30px;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            background: var(--card);
+            text-align: center;
+        }
+
+        .contact-item p {
+            color: var(--steel);
+            font-size: .75rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .contact-item a {
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: var(--cyan);
+        }
+
+        /* =========================
+           FAQ
+        ========================= */
+
+        .faq {
+            max-width: 850px;
+            margin: 45px auto 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .faq-q {
+            width: 100%;
+            padding: 22px 5px;
+            background: transparent;
+            border: 0;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            font-family: var(--font);
+            font-size: .95rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .faq-q span {
+            color: var(--cyan);
+            font-size: 1.3rem;
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s ease;
+        }
+
+        .faq-a p {
+            padding: 0 5px 20px;
+            color: var(--steel);
+            font-size: .85rem;
+        }
+
+        .faq-item.open .faq-a {
+            max-height: 200px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 55px 0 35px;
+            border-top: 1px solid var(--line);
+            background: #040e19;
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: 210px;
+            max-width: 75%;
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            color: #77899b;
+            font-size: .72rem;
+        }
+
+        /* =========================
+           FLOATING WHATSAPP
+        ========================= */
+
+        .floating-wa {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.65rem;
+            z-index: 999;
+            box-shadow:
+                0 12px 35px rgba(0,0,0,.35);
+            transition: .3s;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.08);
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition:
+                opacity .7s ease,
+                transform .7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                position: absolute;
+                top: 78px;
+                left: 0;
+                right: 0;
+                display: none;
+                flex-direction: column;
+                padding: 25px;
+                background: rgba(5,16,29,.98);
+                border-bottom: 1px solid var(--line);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .hero-copy {
+                text-align: center;
+            }
+
+            .hero-copy .lead {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-actions,
+            .hero-tags {
+                justify-content: center;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .process {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .process:before {
+                display: none;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            section {
+                padding: 75px 0;
+            }
+
+            #hero {
+                padding-top: 125px;
+                min-height: auto;
+            }
+
+            .logo-img {
+                height: 58px;
+            }
+
+            .hero-logo {
+                width: 230px;
+            }
+
+            .hero-copy h1 {
+                font-size: 2.55rem;
+            }
+
+            .hero-visual {
+                min-height: 360px;
+            }
+
+            .orbit {
+                width: 310px;
+                height: 310px;
+            }
+
+            .hero-photo-card img {
+                height: 270px;
+            }
+
+            .why-grid,
+            .diff-grid,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ba-slider {
+                height: 360px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .quote-box {
+                padding: 45px 25px;
+            }
+
+            .contact-item a {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header id="header">
+
+        <div class="container">
+
+            <nav>
+
+                <a href="#hero">
+                    <img
+                        class="logo-img"
+                        src="./imagenes/clean.png"
+                        alt="CLEANMET"
+                    >
+                </a>
+
+                <button
+                    class="menu-btn"
+                    id="menuBtn"
+                    aria-label="Abrir menú"
+                >
+                    ☰
+                </button>
+
+                <ul class="nav-links" id="navLinks">
+
+                    <li>
+                        <a href="#hero">Inicio</a>
+                    </li>
+
+                    <li>
+                        <a href="#servicios">Servicios</a>
+                    </li>
+
+                    <li>
+                        <a href="#porque">¿Por qué mantener?</a>
+                    </li>
+
+                    <li>
+                        <a href="#resultados">Antes y Después</a>
+                    </li>
+
+                    <li>
+                        <a href="#como-trabajamos">
+                            Cómo trabajamos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#diferenciales">
+                            Nosotros
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contacto">
+                            Contacto
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            class="nav-cta"
+                            href="https://wa.me/541130322407"
+                            target="_blank"
+                        >
+                            WhatsApp
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- =========================
+             HERO
+        ========================== -->
+
+        <section id="hero">
+
+            <div class="container">
+
+                <div class="hero-grid">
+
+                    <div class="hero-copy reveal">
+                        <h1>
+                            Tu cocina limpia.
+                            <br>
+                            <span>
+                                Tu negocio seguro.
+                            </span>
+                        </h1>
+
+                        <p class="lead">
+                            Limpieza profesional de campanas,
+                            filtros, ductos y motores para cocinas
+                            gastronómicas e industriales.
+                        </p>
+
+                        <div class="hero-actions">
+
+                            <a
+                                class="btn btn-primary"
+                                href="https://wa.me/541130322407"
+                                target="_blank"
+                            >
+                                Solicitar presupuesto
+                            </a>
+
+                            <a
+                                class="btn btn-ghost"
+                                href="#resultados"
+                            >
+                                Ver resultados
+                            </a>
+
+                        </div>
+
+                        <div class="hero-tags">
+
+                            <span>
+                                Limpieza profunda
+                            </span>
+
+                            <span>
+                                Filtros bonificados
+                            </span>
+
+                            <span>
+                                Informe fotográfico
+                            </span>
+
+                            <span>
+                                Certificado digital
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="hero-visual reveal">
+
+                        <div class="orbit"></div>
+
+                        <div class="hero-photo-card">
+
+                            <img
+                                src="./imagenes/despues4.jpg"
+                                alt="Sistema de extracción después de la limpieza"
+                            >
+
+                            <div class="hero-badge">
+                                <b>CLEANMET</b>
+                                Mantenimiento profesional
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             WHY
+        ========================== -->
+
+        <section id="porque">
+
+            <div class="container">
+
+                <div class="section-kicker">
+                    Mantenimiento profesional
+                </div>
+
+                <h2 class="section-title">
+                    ¿Por qué realizar el mantenimiento de tu cocina?
+                </h2>
+
+                <p class="section-subtitle">
+                    El mantenimiento periódico ayuda a conservar
+                    el sistema de extracción, mejorar las condiciones
+                    de trabajo y reducir la acumulación de grasa.
+                </p>
+
+
+                <div class="why-grid">
+
+                    <div class="warning-panel reveal">
+
+                        <h3>
+                            Una cocina profesional necesita
+                            un sistema de extracción cuidado.
+                        </h3>
+
+                        <p>
+                            La grasa y la suciedad se acumulan
+                            en campanas, filtros, ductos y motores.
+                            Un mantenimiento adecuado permite
+                            mantener todo el sistema en mejores
+                            condiciones.
+                        </p>
+
+                        <ul class="risk-list">
+
+                            <li>
+                                Menor acumulación de grasa
+                            </li>
+
+                            <li>
+                                Mejor mantenimiento del sistema
+                            </li>
+
+                            <li>
+                                Mayor higiene
+                            </li>
+
+                            <li>
+                                Documentación del servicio
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="why-card reveal">
+
+                        <div class="why-icon">
+                            🔥
+                        </div>
+
+                        <h3>
+                            Seguridad
+                        </h3>
+
+                        <p>
+                            Reducí la acumulación de grasa
+                            en el sistema de extracción y mantené
+                            una cocina más segura.
+                        </p>
+
+                    </div>
+
+
+                    <div class="why-card reveal">
+
+                        <div class="why-icon">
+                            ⚙️
+                        </div>
+
+                        <h3>
+                            Rendimiento
+                        </h3>
+
+                        <p>
+                            Un sistema limpio puede trabajar
+                            de manera más eficiente y con mejores
+                            condiciones de extracción.
+                        </p>
+
+                    </div>
+
+
+                    <div class="why-card reveal">
+
+                        <div class="why-icon">
+                            🧼
+                        </div>
+
+                        <h3>
+                            Higiene
+                        </h3>
+
+                        <p>
+                            Eliminamos grasa y suciedad acumulada
+                            en campanas, filtros, ductos y motores.
+                        </p>
+
+                    </div>
+
+
+                    <div class="why-card reveal">
+
+                        <div class="why-icon">
+                            📋
+                        </div>
+
+                        <h3>
+                            Respaldo
+                        </h3>
+
+                        <p>
+                            Recibís Filtros nuevos,informe fotográfico y
+                            certificado digital del trabajo realizado.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SERVICES
+        ========================== -->
+
+        <section id="servicios">
+
+            <div class="container">
+
+                <div class="section-kicker">
+                    Mantenimiento Integral
+                </div>
+
+                <h2 class="section-title">
+                    Todo el sistema. Un solo servicio.
+                </h2>
+
+                <p class="section-subtitle">
+                    Trabajamos sobre los componentes que intervienen
+                    en la extracción para lograr una limpieza completa.
+                </p>
+
+
+                <div class="services-grid">
+
+                    <article class="service reveal">
+
+                        <div class="num">
+                            01
+                        </div>
+
+                        <div class="icon">
+                            🧽
+                        </div>
+
+                        <h3>
+                            Campanas
+                        </h3>
+
+                        <p>
+                            Desengrase profundo de superficies
+                            y zonas de acumulación.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service reveal">
+
+                        <div class="num">
+                            02
+                        </div>
+
+                        <div class="icon">
+                            ▦
+                        </div>
+
+                        <h3>
+                            Filtros
+                        </h3>
+
+                        <p>
+                            Recambio y mantenimiento de filtros
+                            con reposición BONIFICADA según servicio.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service reveal">
+
+                        <div class="num">
+                            03
+                        </div>
+
+                        <div class="icon">
+                            〰
+                        </div>
+
+                        <h3>
+                            Ductos
+                        </h3>
+
+                        <p>
+                            Limpieza profesional de los conductos
+                            del sistema de extracción.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service reveal">
+
+                        <div class="num">
+                            04
+                        </div>
+
+                        <div class="icon">
+                            ⚙
+                        </div>
+
+                        <h3>
+                            Motores
+                        </h3>
+
+                        <p>
+                            Limpieza y mantenimiento de los
+                            componentes del sistema de extracción.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             BEFORE AFTER
+        ========================== -->
+
+        <section id="resultados">
+
+            <div class="container">
+
+                <div class="section-kicker">
+                    Comprobalo vos mismo
+                </div>
+
+                <h2 class="section-title">
+                    Antes y Después
+                </h2>
+
+                <p class="section-subtitle">
+                    Deslizá el control para ver la diferencia
+                    real del trabajo CLEANMET.
+                </p>
+
+
+                <div class="ba-wrap reveal">
+
+                    <div class="ba-slider" id="baSlider">
+
+                        <img
+                            src="./imagenes/despues4.jpg"
+                            alt="Después de la limpieza"
+                        >
+
+                        <div
+                            class="ba-before"
+                            id="baBefore"
+                        >
+
+                            <img
+                                src="./imagenes/antes4.jpg"
+                                alt="Antes de la limpieza"
+                            >
+
+                        </div>
+
+
+                        <span class="ba-label before">
+                            ANTES
+                        </span>
+
+                        <span class="ba-label after">
+                            DESPUÉS
+                        </span>
+
+
+                        <div
+                            class="ba-divider"
+                            id="baDivider"
+                        ></div>
+
+                        <div
+                            class="ba-handle"
+                            id="baHandle"
+                        >
+                            ↔
+                        </div>
+
+                    </div>
+
+
+                    <div class="ba-controls">
+                        Arrastrá el control o usá la barra
+                        para comparar
+                    </div>
+
+
+                    <input
+                        class="ba-range"
+                        id="baRange"
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="50"
+                        aria-label="Comparar antes y después"
+                    >
+
+                </div>
+
+
+                <div class="gallery-grid">
+
+
+                    <article class="gallery-card reveal">
+
+                        <div class="gallery-images">
+
+                            <div>
+                                <span>ANTES</span>
+
+                                <img
+                                    src="./imagenes/antes1.jpg"
+                                    alt="Antes de limpieza 1"
+                                >
+                            </div>
+
+                            <div>
+                                <span>DESPUÉS</span>
+
+                                <img
+                                    src="./imagenes/despues1.jpg"
+                                    alt="Después de limpieza 1"
+                                >
+                            </div>
+
+                        </div>
+
+                        <h3>
+                            Servicio 01
+                        </h3>
+
+                    </article>
+
+
+                    <article class="gallery-card reveal">
+
+                        <div class="gallery-images">
+
+                            <div>
+                                <span>ANTES</span>
+
+                                <img
+                                    src="./imagenes/antes2.jpg"
+                                    alt="Antes de limpieza 2"
+                                >
+                            </div>
+
+                            <div>
+                                <span>DESPUÉS</span>
+
+                                <img
+                                    src="./imagenes/despues2.jpg"
+                                    alt="Después de limpieza 2"
+                                >
+                            </div>
+
+                        </div>
+
+                        <h3>
+                            Servicio 02
+                        </h3>
+
+                    </article>
+
+
+                    <article class="gallery-card reveal">
+
+                        <div class="gallery-images">
+
+                            <div>
+                                <span>ANTES</span>
+
+                                <img
+                                    src="./imagenes/antes3.jpg"
+                                    alt="Antes de limpieza 3"
+                                >
+                            </div>
+
+                            <div>
+                                <span>DESPUÉS</span>
+
+                                <img
+                                    src="./imagenes/despues3.jpg"
+                                    alt="Después de limpieza 3"
+                                >
+                            </div>
+
+                        </div>
+
+                        <h3>
+                            Servicio 03
+                        </h3>
+
+                    </article>
+
+
+                    <article class="gallery-card reveal">
+
+                        <div class="gallery-images">
+
+                            <div>
+                                <span>ANTES</span>
+
+                                <img
+                                    src="./imagenes/antes5.jpg"
+                                    alt="Antes de limpieza 5"
+                                >
+                            </div>
+
+                            <div>
+                                <span>DESPUÉS</span>
+
+                                <img
+                                    src="./imagenes/despues5.jpg"
+                                    alt="Después de limpieza 5"
+                                >
+                            </div>
+
+                        </div>
+
+                        <h3>
+                            Servicio 04
+                        </h3>
+
+                    </article>
+
+
+                    <article class="gallery-card reveal">
+
+                        <div class="gallery-images">
+
+                            <div>
+                                <span>ANTES</span>
+
+                                <img
+                                    src="./imagenes/antes 6.jpg"
+                                    alt="Antes de limpieza 6"
+                                >
+                            </div>
+
+                            <div>
+                                <span>DESPUÉS</span>
+
+                                <img
+                                    src="./imagenes/despues6.jpg"
+                                    alt="Después de limpieza 6"
+                                >
+                            </div>
+
+                        </div>
+
+                        <h3>
+                            Servicio 05
+                        </h3>
+
+                    </article>
+
+
+                </div>
+
+
+                <div class="stats">
+
+                    <div class="stat reveal">
+
+                        <strong>
+                           100%
+                        </strong>
+
+                        <span>
+                            Servicio Integral
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat reveal">
+
+                        <strong>
+                            100%
+                        </strong>
+
+                        <span>
+                            Enfoque Profesional
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat reveal">
+
+                        <strong>
+                            24/7
+                        </strong>
+
+                        <span>
+                            Atención para Consultas
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROCESS
+        ========================== -->
+
+        <section id="como-trabajamos">
+
+            <div class="container">
+
+                <div class="section-kicker">
+                    Simple y transparente
+                </div>
+
+                <h2 class="section-title">
+                    Cómo Trabajamos
+                </h2>
+
+                <p class="section-subtitle">
+                    Un proceso claro desde el primer contacto
+                    hasta la entrega del respaldo del servicio.
+                </p>
+
+
+                <div class="process">
+
+
+                    <div class="step reveal">
+
+                        <div class="step-circle">
+                            01
+                        </div>
+
+                        <h3>
+                            Contacto
+                        </h3>
+
+                        <p>
+                            Contanos qué tipo de cocina tenés
+                            y qué necesitás.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step reveal">
+
+                        <div class="step-circle">
+                            02
+                        </div>
+
+                        <h3>
+                            Inspección
+                        </h3>
+
+                        <p>
+                            Evaluamos el sistema
+                            y sus necesidades.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step reveal">
+
+                        <div class="step-circle">
+                            03
+                        </div>
+
+                        <h3>
+                            Propuesta
+                        </h3>
+
+                        <p>
+                            Te presentamos un presupuesto
+                            personalizado.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step reveal">
+
+                        <div class="step-circle">
+                            04
+                        </div>
+
+                        <h3>
+                            Limpieza
+                        </h3>
+
+                        <p>
+                            Realizamos el Mantenimiento Integral.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step reveal">
+
+                        <div class="step-circle">
+                            05
+                        </div>
+
+                        <h3>
+                            Respaldo
+                        </h3>
+
+                        <p>
+                            Recibís Fotos y Certificado
+                            del trabajo.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             DIFFERENTIALS
+        ========================== -->
+
+        <section id="diferenciales">
+
+            <div class="container">
+
+                <div class="section-kicker">
+                    Nuestro Diferencial
+                </div>
+
+                <h2 class="section-title">
+                    Más que limpiar
+                </h2>
+
+                <p class="section-subtitle">
+                    Buscamos que el mantenimiento sea una solución
+                    práctica para tu operación.
+                </p>
+
+
+                <div class="diff-grid">
+
+
+                    <div class="diff-card reveal">
+
+                        <h3>
+                            Lo que recibís
+                        </h3>
+
+                        <ul class="checks">
+
+                            <li>
+                                Limpieza Profunda del Sistema
+                            </li>
+
+                            <li>
+                                Informe Fotográfico Antes y Después
+                            </li>
+
+                            <li>
+                                Certificado Digital
+                            </li>
+
+                            <li>
+                                Reposición de Filtros
+                                BONIFICADA
+                            </li>
+
+                            <li>
+                                Atención Personalizada
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="diff-card reveal">
+
+                        <h3>
+                            Para quién trabajamos
+                        </h3>
+
+                        <ul class="checks">
+
+                            <li>
+                                Restaurantes y Bares
+                            </li>
+
+                            <li>
+                                Cocinas Industriales
+                            </li>
+
+                            <li>
+                                Hoteles y Establecimientos
+                                Gastronómicos
+                            </li>
+
+                            <li>
+                                Locales con sistemas
+                                de extracción
+                            </li>
+
+                            <li>
+                                Empresas que necesitan
+                                mantenimiento periódico
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             QUOTE
+        ========================== -->
+
+        <section id="presupuesto">
+
+            <div class="container">
+
+                <div class="quote-box reveal">
+
+                    <div class="section-kicker">
+                        Cada instalación es diferente
+                    </div>
+
+                    <h2>
+                        Pedí tu presupuesto personalizado
+                    </h2>
+
+                    <p>
+                        Te orientamos sobre el mantenimiento que
+                        necesita tu sistema y coordinamos una
+                        inspección técnica sin cargo.
+                    </p>
+
+                    <a
+                        class="btn btn-primary"
+                        href="https://wa.me/541130322407"
+                        target="_blank"
+                    >
+                        Quiero mi presupuesto
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+
+        <section id="contacto">
+
+            <div class="container">
+
+                <div class="section-kicker">
+                    Estamos para ayudarte
+                </div>
+
+                <h2 class="section-title">
+                    Hablemos
+                </h2>
+
+                <p class="section-subtitle">
+                    Consultanos y coordinemos el próximo
+                    mantenimiento de tu cocina.
+                </p>
+
+
+                <div class="contact-wrapper reveal">
+
+
+                    <div class="contact-item">
+
+                        <p>
+                            WhatsApp / Teléfono
+                        </p>
+
+                        <a href="tel:1151141136">
+                            11 5114 1136
+                        </a>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <p>
+                            WhatsApp / Teléfono
+                        </p>
+
+                        <a href="tel:1130322407">
+                            11 3032 2407
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="faq">
+
+
+                    <div class="faq-item">
+
+                        <button class="faq-q">
+
+                            ¿Cada cuánto conviene realizar
+                            el mantenimiento?
+
+                            <span>
+                                +
+                            </span>
+
+                        </button>
+
+                        <div class="faq-a">
+
+                            <p>
+                                La frecuencia depende del uso y
+                                del tipo de cocina. Podemos evaluar
+                                tu instalación y recomendarte un
+                                esquema de mantenimiento.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <button class="faq-q">
+
+                            ¿Qué incluye el servicio?
+
+                            <span>
+                                +
+                            </span>
+
+                        </button>
+
+                        <div class="faq-a">
+
+                            <p>
+                                El servicio puede abarcar campana,
+                                filtros, ductos y motor, junto con
+                                informe fotográfico y certificado
+                                digital.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <button class="faq-q">
+
+                            ¿Los filtros están incluidos?
+
+                            <span>
+                                +
+                            </span>
+
+                        </button>
+
+                        <div class="faq-a">
+
+                            <p>
+                                La reposición de filtros puede estar
+                                bonificada según las condiciones
+                                del servicio contratado.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <img
+                class="footer-logo"
+                src="./imagenes/clean.png"
+                alt="CLEANMET"
+            >
+
+            <p>
+                © 2026 CLEANMET —
+                Limpieza Profesional de Campanas,
+                Ductos y Motores.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         WHATSAPP
+    ========================== -->
+
+    <a
+        class="floating-wa"
+        href="https://wa.me/541130322407"
+        target="_blank"
+        aria-label="Contactar por WhatsApp"
+    >
+        ☎
+    </a>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* HEADER */
+
+        const header =
+            document.getElementById('header');
+
+        window.addEventListener(
+            'scroll',
+            () => {
+
+                header.classList.toggle(
+                    'scrolled',
+                    window.scrollY > 20
+                );
+
+            }
+        );
+
+
+        /* MENU MOBILE */
+
+        const menuBtn =
+            document.getElementById('menuBtn');
+
+        const navLinks =
+            document.getElementById('navLinks');
+
+        menuBtn.addEventListener(
+            'click',
+            () => {
+
+                navLinks.classList.toggle('open');
+
+            }
+        );
+
+
+        document
+            .querySelectorAll('.nav-links a')
+            .forEach(
+                a => {
+
+                    a.addEventListener(
+                        'click',
+                        () => {
+
+                            navLinks.classList.remove('open');
+
+                        }
+                    );
+
+                }
+            );
+
+
+        /* BEFORE / AFTER */
+
+        const range =
+            document.getElementById('baRange');
+
+        const before =
+            document.getElementById('baBefore');
+
+        const divider =
+            document.getElementById('baDivider');
+
+        const handle =
+            document.getElementById('baHandle');
+
+
+        function updateBA(value) {
+
+            before.style.clipPath =
+                `inset(0 ${100 - value}% 0 0)`;
+
+            divider.style.left =
+                value + '%';
+
+            handle.style.left =
+                value + '%';
+
+        }
+
+
+        range.addEventListener(
+            'input',
+            event => {
+
+                updateBA(event.target.value);
+
+            }
+        );
+
+
+        updateBA(50);
+
+
+        /* FAQ */
+
+        document
+            .querySelectorAll('.faq-q')
+            .forEach(
+                button => {
+
+                    button.addEventListener(
+                        'click',
+                        () => {
+
+                            const item =
+                                button.parentElement;
+
+                            item.classList.toggle('open');
+
+                            button
+                                .querySelector('span')
+                                .textContent =
+                                item.classList.contains('open')
+                                ? '−'
+                                : '+';
+
+                        }
+                    );
+
+                }
+            );
+
+
+        /* ANIMACIONES */
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    'visible'
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: .12
+                }
+            );
+
+
+        document
+            .querySelectorAll('.reveal')
+            .forEach(
+                element => {
+
+                    observer.observe(element);
+
+                }
+            );
+
+    </script>
+
+</body>
+</html>
